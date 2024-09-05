@@ -1,0 +1,8 @@
+numberOfComplitedHW=12
+print(numberOfComplitedHW)
+nomberOfHoursSpent=1.5
+print(nomberOfHoursSpent)
+Course_name='Python'
+print(Course_name)
+time_for_1HW=(nomberOfHoursSpent/numberOfComplitedHW)
+print(time_for_1HW*60,'min')
