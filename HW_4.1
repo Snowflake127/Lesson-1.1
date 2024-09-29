@@ -1,0 +1,29 @@
+# module_4_1
+# задача: "А как делить?"
+from fake_math import divide as sch_math
+from true_math import divide as h_sch_math
+result1 = sch_math(69, 3)
+result2 = sch_math(3, 0)
+result3 = h_sch_math(49, 7)
+result4 = h_sch_math(15, 0)
+print(result1)
+print(result2)
+print(result3)
+print(result4)
+
+# fake_math.py
+def divide (first, second):
+    if second != 0:
+        return (first / second)
+    else:
+        return ('Ошибка!')
+
+# true_math.py
+from math import inf
+def divide (first, second):
+    if second != 0:
+        return (first / second)
+    else:
+        return (inf)
+
+        
