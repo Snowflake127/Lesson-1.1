@@ -1,0 +1,76 @@
+from module_5_2 import h1, h2, h3, House
+class Houseplus (House):
+
+    # 1. Check are the numbers of floors equal
+    #def __eq__ (self, other):
+        #return self.number_of_floors == other.number_of_floors
+
+    # 2. Compare
+    # 2.1. Less than
+    def __lt__(self, other):
+        if isinstance(other, int):
+            return self.number_of_floors < other.number_of_floors
+        else:
+            return self.number_of_floors < other
+    # 2.2. Less or equal
+    def __le__(self, other):
+        if isinstance(other, int):
+            return self.number_of_floors <= other.number_of_floors
+        else:
+            return self.number_of_floors <= other
+    # 2.3. Grander than
+    def __gt__(self, other):
+        if isinstance(other, int):
+            return self.number_of_floors > other.number_of_floors
+        else:
+            return self.number_of_floors > other
+    # 2.4. Grander or equal
+    def __ge__(self, other):
+        if isinstance(other, int):
+            return self.number_of_floors >= other.number_of_floors
+        else:
+            return self.number_of_floors >= other
+    # 2.5. Grander non equal
+    def __ne__(self, other):
+        if isinstance(other, int):
+            return self.number_of_floors != other.number_of_floors
+        else:
+            return self.number_of_floors != other
+
+    # 3. Add the number of floors
+    def __add__(self, value):
+        return self.number_of_floors + value
+
+    # 4. Methods iadd & radd
+    def __iadd__(self, x):
+        self.number_of_floors += x
+        return self
+
+h4 = Houseplus('ЖК Эльбрус', 20)
+h5 = Houseplus('ЖК Акация', 20)
+
+print (h1 == h2)
+print (h2 == h3)
+print (h4 == h5)
+
+#Method --add-- does not work for h1, h2, h3 from parental klass
+print(str(h1))
+#h1=h1+2 #18+2
+#print(h1) #  печать: 20
+#print(str(h1)) # печатает 20, а должен был :"Name: ЖК Горский, number of floors: 20"
+
+print(str(h4))
+h4=h4+2 # 20+2
+print(h4) # печать: 22
+h4+=1 # 22+1
+print(h4) #23 печать 23
+print(str(h4)) # печатает 23, а должен был "Name: ЖК Эльбрус, number of floors:23"
+
+h5=h5+5 # 20+5
+print(h5) # печать 25
+# Compare methods do not work if they are called before methods __add__
+print (h4 < h5)  # 23<25 True
+print (h4 <= h5) # 23<=25 True
+print (h4 > h5) # 23>25 False
+print (h4 >= h5) # 23>=25 False
+print (h4 != h5) # 23 not equal 25 True
