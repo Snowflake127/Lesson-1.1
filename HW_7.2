@@ -13,8 +13,9 @@ def custom_write (file_name, strings):
         file.write(f'{i}\n')
         number_string += 1
         strings_positions.update({(number_string, cursor): i})
-        return strings_positions
+
     file.close()
+    return strings_positions
 
 if __name__ == '__main__':
     info = [
