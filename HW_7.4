@@ -1,0 +1,23 @@
+# Использование %:
+print ("There are %(team1_num)s participants in Code Master's team" % {'team1_num': 5})
+print ("Today there are %(team1_num)s and %(team2_num)s participants in teams" % {'team1_num': 5,'team2_num': 6 })
+# Использование Format():
+print ('The team "Data Wizards" solved {score_2} tasks'.format(score_2=42))
+print ('The team "Data Wizards" solved {score_2} tasks in {team2_time} seconds'.format(score_2=42, team2_time=18015.2))
+# Использование f строки:
+team1='Мастера кода'
+team2='Волшебники данных'
+
+score_1=40
+score_2=42
+print (f'The teams solved {score_1} & {score_1} tasks')
+
+def result_comp (score_1, score_2, team1_time, team2_time):
+    if score_1 > score_2 or score_1 == score_2 and team1_time > team2_time:
+        print (f'Победа команды: {team1}!')
+    elif score_1 < score_2 or score_1 == score_2 and team1_time < team2_time:
+        print (f'Победа команды: {team2}!')
+    else:
+        print ('Ничья!')
+
+result_comp(45, 42, 1552.512,2153.31451)
