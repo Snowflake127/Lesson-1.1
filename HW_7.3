@@ -1,0 +1,38 @@
+from idlelib.iomenu import encoding
+import re
+
+class WordsFinder:
+    def __init__(self, *file_names):
+
+        self.file_names = file_names
+        print(file_names)
+        print(type(file_names))
+
+    def get_all_words (self):
+        words=[]
+        all_words = {} # определяем справочник
+        for item in self.file_names: # перебираем файлы из множества file_names
+            with open (item, encoding='utf-8') as file: #открываем файлы с помощью With
+                for line in file:
+                    line = line.lower()
+                    line = re.sub(r'[,.=!?;:-]','',line)
+                    line = line.split()
+                    words.extend(line)
+            all_words.update({item: words})
+            return all_words
+    def find (self, word, all_words=None, index_in_file=None):
+
+        for name, word in self.get_all_words().items():
+            index=all_words.index(word)
+            print(index)
+            return index_in_file == {name: index}
+
+
+
+
+folder_1= WordsFinder ('file1_7_3.txt', 'file2_7_3.txt')
+folder_2= WordsFinder ('file1_7_3.txt')
+
+#print(folder_1.get_all_words())
+print(folder_2.get_all_words())
+print(folder_2.find('TEXT'))
